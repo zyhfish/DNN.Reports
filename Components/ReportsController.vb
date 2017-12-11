@@ -573,6 +573,18 @@ Namespace DotNetNuke.Modules.Reports
                     Next
 
                 End If
+            ELSE
+                If Not String.IsNullOrEmpty(Report.Parameters.Trim()) Then
+
+                    Dim params As String() = Report.Parameters.Split(","c)
+
+                    For Each param As String In params
+
+                        ' Add the parameter
+                        dict.Add("url_" + param, Nothing)
+                    Next
+
+                End If
 
             End If
 
